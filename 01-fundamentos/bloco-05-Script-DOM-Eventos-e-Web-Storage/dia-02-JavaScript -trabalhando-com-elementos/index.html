@@ -128,6 +128,7 @@
          let listertext = textlist[i];
          let underlist = document.createElement("li");
          underlist.innerText = listertext
+         underlist.className = "list-item"
          ullist.appendChild(underlist);        
       }
       //Adicione 3 tags h3 , todas sendo filhas do main criado 
@@ -162,7 +163,30 @@
       //right-content ). Dica: para centralizar, basta configurar o 
       //margin-right: auto da section ;
 
-      document.getElementsByClassName("right-content").style.marginRight = "auto";
-    </script>
+      //Referencia: https://stackoverflow.com/questions/17481191/cannot-set-property-marginleft-of-undefined
+
+     var margin = document.getElementsByClassName("right-content");
+     for (let i = 0; i < margin.length; i++) {
+       margin[i].style.marginRight = "auto";
+       }
+    // Troque a cor de fundo do elemento pai da section criada no passo 3
+    // (aquela que possui a classe center-content ) para a cor verde;
+     
+    var back = document.getElementsByClassName("center-content")[0];
+    back.style.backgroundColor = "rgb(76,164,109)";
+    
+    //Remova os dois últimos elementos ( nove e dez ) da lista criada no passo 8.
+    
+     let rem = document.querySelectorAll(".list-item");
+    for (let i = 0; i < rem.length; i++) {
+      let item = rem[i];
+      if (item.innerText.includes('Nove')) {
+        ullist.removeChild(item);
+      }
+      if (item.innerText.includes('Dez')) {
+        ullist.removeChild(item);
+      }
+    }
+  </script>
   </body>
 </html>
