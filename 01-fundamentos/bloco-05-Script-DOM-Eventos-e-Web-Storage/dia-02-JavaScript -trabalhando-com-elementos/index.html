@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Exercício 5.2</title>
+    <style>
+      section {
+        border-color: black;
+        border-style: solid;
+      }
+
+      .title {
+        text-align: center;
+      }
+
+      .main-content {
+        background-color: yellow;
+      }
+
+      .main-content .center-content {
+        background-color: red;
+        width: 50%;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .main-content .center-content p {
+        font-style: italic;
+      }
+
+      .main-content .left-content {
+        background-color: green;
+        width: 60%;
+        margin-left: 0;
+        margin-right: auto;
+      }
+
+      .main-content .left-content .small-image {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        border-radius: 100%;
+      }
+
+      .main-content .right-content {
+        background-color: blue;
+        width: 60%;
+        margin-left: auto;
+        margin-right: 0;
+      }
+
+      .main-content .description {
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      //Adicione a tag h1 com o texto 
+      //Exercício 5.2 - JavaScript DOM como filho da tag body ;
+      let titulo = document.querySelector('body');
+      let texto = "Exercício 5.2 - JavaScript DOM";
+      let adctext = document.createElement("h1")
+      adctext.innerText = texto
+      titulo.appendChild(adctext);
+      //Adicione a tag main com a classe main-content como 
+      //filho da tag body;
+      let mainadc = document.querySelector('body');
+      let adictext = document.createElement("main")
+      adictext.className = "main-content"
+      mainadc.appendChild(adictext);
+      // /Adicione a tag section com a classe center-content 
+      //como filho da tag main criada no passo 2;
+      let sectionadc = document.querySelector('main');
+      let adicitext = document.createElement("section")
+      adicitext.className = "center-content"
+      sectionadc.appendChild(adicitext);
+      //Adicione a tag p como filho do section criado no passo
+      // 3 e coloque algum texto;
+      let tagadc = document.querySelector('.center-content');
+      let adiciotext = document.createElement("p")
+      let text1 = "Algum Texto";
+      adiciotext.innerText = text1
+      tagadc.appendChild(adiciotext);
+      //Adicione a tag section com a classe left-content como 
+      //filho da tag main criada no passo 2;
+      let section2adc = document.querySelector('main');
+      let adiciontext = document.createElement("section")
+      adiciontext.className = "left-content"
+      section2adc.appendChild(adiciontext);
+      //Adicione a tag section com a classe right-content como 
+      //filho da tag main criada no passo 2;
+      let section3adc = document.querySelector('main');
+      let adicionatext = document.createElement("section")
+      adicionatext.className = "right-content"
+      section3adc.appendChild(adicionatext);
+      //Adicione uma imagem com src configurado para o valor 
+      //https://picsum.photos/200 e classe small-image . Esse 
+      //elemento deve ser filho do section criado no passo 5;
+      let imgadc = document.querySelector('.left-content');
+      let adcimg = document.createElement("img")
+      adcimg.src = 'https://picsum.photos/200'
+      adcimg.className = "small-image"
+      imgadc.appendChild(adcimg);
+      //Adicione uma lista não ordenada com os valores de 1 a 
+      //10 por extenso, ou seja, um , dois , três , ... como 
+      //valores da lista. Essa lista deve ser filha do section 
+      //criado no passo 6;
+      let textlist = [
+        'Um',
+        'Dois',
+        'Três',
+        'Quatro',
+        'Cinco',
+        'Seis',
+        'Sete',
+        'Oito',
+        'Nove',
+        'Dez'  
+      ];
+      let listadc = document.querySelector('.right-content');
+      let adclist = document.createElement("ul")
+      adclist.className = "list"
+      listadc.appendChild(adclist);
+      let ullist = document.querySelector(".list")
+      for (let i = 0; i < textlist.length; i++) {
+         let listertext = textlist[i];
+         let underlist = document.createElement("li");
+         underlist.innerText = listertext
+         underlist.className = "list-item"
+         ullist.appendChild(underlist);        
+      }
+      //Adicione 3 tags h3 , todas sendo filhas do main criado 
+      //no passo 2
+      let title3 = document.querySelector('main');
+      let adctitle3 = document.createElement("h3")
+      sectionadc.appendChild(adctitle3);
+      
+      let title4 = document.querySelector('main');
+      let adctitle4 = document.createElement("h3")
+      sectionadc.appendChild(adctitle4);
+      
+      let title5 = document.querySelector('main');
+      let adctitle5 = document.createElement("h3")
+      sectionadc.appendChild(adctitle5);
+
+      //Adicione a classe title na tag h1 criada;
+
+      adctext.className = "title";
+
+      //Adicione a classe description nas 3 tags h3 criadas;
+      adctitle3.className = "Description"
+      adctitle4.className = "Description"
+      adctitle5.className = "Description"
+      
+      //Remova a section criado no passo 5 (aquele que 
+      //possui a classe left-content ). Utilize a função .removeChild() ;
+      
+      section2adc.removeChild(adiciontext);
+
+      //Centralize a section criado no passo 6 (aquele que possui a classe 
+      //right-content ). Dica: para centralizar, basta configurar o 
+      //margin-right: auto da section ;
+
+      //Referencia: https://stackoverflow.com/questions/17481191/cannot-set-property-marginleft-of-undefined
+
+     var margin = document.getElementsByClassName("right-content");
+     for (let i = 0; i < margin.length; i++) {
+       margin[i].style.marginRight = "auto";
+       }
+    // Troque a cor de fundo do elemento pai da section criada no passo 3
+    // (aquela que possui a classe center-content ) para a cor verde;
+     
+    var back = document.getElementsByClassName("center-content")[0];
+    back.style.backgroundColor = "rgb(76,164,109)";
+    
+    //Remova os dois últimos elementos ( nove e dez ) da lista criada no passo 8.
+    
+     let rem = document.querySelectorAll(".list-item");
+    for (let i = 0; i < rem.length; i++) {
+      let item = rem[i];
+      if (item.innerText.includes('Nove')) {
+        ullist.removeChild(item);
+      }
+      if (item.innerText.includes('Dez')) {
+        ullist.removeChild(item);
+      }
+    }
+  </script>
+  </body>
+</html>
